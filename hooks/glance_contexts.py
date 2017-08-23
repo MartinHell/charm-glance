@@ -158,7 +158,7 @@ class GlanceIPv6Context(BindHostContext):
 
         return ctxt
 
-class GlanceLoggingContext(context.OSContextGenerator):
+class GlanceLoggingContext(OSContextGenerator):
 
     def __call__(self):
         ctxt = {}

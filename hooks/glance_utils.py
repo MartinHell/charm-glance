@@ -135,6 +135,7 @@ CHARM = "glance"
 GLANCE_CONF_DIR = "/etc/glance"
 GLANCE_REGISTRY_CONF = "%s/glance-registry.conf" % GLANCE_CONF_DIR
 GLANCE_API_CONF = "%s/glance-api.conf" % GLANCE_CONF_DIR
+GLANCE_LOGGER_CONF = '%s/logging.conf' % GLANCE_CONF_DIR
 GLANCE_REGISTRY_PASTE = os.path.join(GLANCE_CONF_DIR,
                                      'glance-registry-paste.ini')
 GLANCE_API_PASTE = os.path.join(GLANCE_CONF_DIR,
@@ -221,7 +222,11 @@ CONFIG_FILES = OrderedDict([
     (HTTPS_APACHE_24_CONF, {
         'hook_contexts': [glance_contexts.ApacheSSLContext()],
         'services': ['apache2'],
-    })
+    }),
+    (GLANCE_LOGGER_CONF, {
+        'hook_contexts': [glance_contexts.GlanceLoggingContext()],
+        'services': ['glance-api', 'glance-registry'],
+    }),
 ])
 
 

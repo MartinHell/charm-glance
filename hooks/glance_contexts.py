@@ -18,7 +18,8 @@ from charmhelpers.core.hookenv import (
     relation_get,
     related_units,
     service_name,
-    config
+    config,
+    log
 )
 
 from charmhelpers.contrib.openstack.context import (

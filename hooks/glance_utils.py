@@ -243,7 +243,8 @@ def register_configs():
 
     confs = [GLANCE_REGISTRY_CONF,
              GLANCE_API_CONF,
-             HAPROXY_CONF]
+             HAPROXY_CONF,
+             GLANCE_LOGGER_CONF]
 
     if relation_ids('ceph'):
         mkdir(os.path.dirname(ceph_config_file()))
